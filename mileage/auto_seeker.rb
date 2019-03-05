@@ -12,6 +12,12 @@ class AutoSeeker
     end
   end
 
+  def filter_by_price_range min, max
+    @autos = autos.select do |auto|
+      auto.price >= min && auto.price <= max
+    end
+  end
+
   def autos
     @autos ||= @data.map do |row|
       Auto.new(row)
