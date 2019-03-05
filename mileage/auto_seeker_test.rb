@@ -24,7 +24,9 @@ describe AutoSeeker do
       @seeker.filter 'fuel', 'gas'
       @seeker.autos.collect(&:fuel).uniq.must_equal ['gas']
     end
+  end
 
+  describe "#filter_by_price_range " do
     it "can filter by price range" do
       @seeker.filter_by_price_range 13000, 15000
       @seeker.autos.each do |auto| 
