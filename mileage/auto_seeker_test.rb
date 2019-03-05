@@ -18,6 +18,11 @@ describe AutoSeeker do
       @seeker.filter 'color', 'Red'
       @seeker.autos.collect(&:color).uniq.must_equal ['Red']
     end
+
+    it "can filter by fuel type " do
+      @seeker.filter 'fuel', 'gas'
+      @seeker.autos.collect(&:fuel).uniq.must_equal ['gas']
+    end
   end
 
   describe ".median_mileage " do
